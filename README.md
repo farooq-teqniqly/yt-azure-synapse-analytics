@@ -1,4 +1,6 @@
-# Example
+# Azure Synapse Analytics Machine Learning Example
+
+For more context please view the [YouTube](http://www.youtube.com) video.
 
 ## Create Azure Resources
 
@@ -12,7 +14,8 @@ The script also uploads several CSV files to the Azure Data Lake.
 
 1. Open a Powershell session and go to the repository root.
 2. Login to Azure by running `az login`.
-3. Run the deployment script.
+3. Get your subscription id by running `az account show --query id`.
+4. Run the deployment script specifying your subscription id.
 
 ```powershell
 .\deploy\deploy.ps1 -location westeurope -subscriptionId [your subscription id]
@@ -25,7 +28,9 @@ The script also uploads several CSV files to the Azure Data Lake.
 When the deployment script successfuly completes, your Azure Synapse Workspace URL is shown in the output:
 
 ```bash
+Your Azure Synapse workspace url:
 
+https://web.azuresynapse.net?workspace=%2fsubscriptions%2f1e32e17d-db2c-4254-ac01-5010575e89dd%2fresourceGroups%2fsynapsepoc-iauqiv-rg%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2fiauqivsynws
 ```
 
 Browse to that URL to open your workspace.

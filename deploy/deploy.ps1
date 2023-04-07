@@ -47,10 +47,13 @@ Write-Host $uniquePrefix -ForegroundColor Cyan
 Write-Host "Your resource group name is " -NoNewline 
 Write-Host $resourceGroupName -ForegroundColor Cyan
 
+az login --scope https://management.core.windows.net//.default
 az account set --subscription $subscriptionId
 az group create --name $resourceGroupName --location $location
 
 $templateFileName = [IO.Path]::Combine($PSScriptRoot, "azuredeploy.json")
+
+Write-Host "Starting deployment..."
 
 $output = az deployment group create `
     --resource-group $resourceGroupName `
@@ -130,7 +133,7 @@ foreach ($notebookFile in $notebookFiles) {
     az synapse notebook import `
         --workspace-name $synapseWorkspaceName  `
         --name $notebookFile.Name.Replace($notebookFile.Extension, "") `
-        --file "@$notebookFolderPath/$notebookFile"
+        --file "`"@$notebookFolderPath/$notebookFile`""
 }
 
 Write-Host "Upload complete" -ForegroundColor Cyan

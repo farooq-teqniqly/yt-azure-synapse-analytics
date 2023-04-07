@@ -29,11 +29,15 @@ When the deployment script successfuly completes, your Azure Synapse Workspace U
 
 ```bash
 Your Azure Synapse workspace url:
+https://web.azuresynapse.net?workspace=%2fsubscriptions%2f1e32e17d-db2c-4254-ac01-5010575e89dd%2fresourceGroups%2fsynapsepoc-atjrra-rg%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2fatjrrasynws
 
-https://web.azuresynapse.net?workspace=%2fsubscriptions%2f1e32e17d-db2c-4254-ac01-5010575e89dd%2fresourceGroups%2fsynapsepoc-iauqiv-rg%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2fiauqivsynws
+Your file system endpoint:
+atjrrasynfs@atjrrasyndl.dfs.core.windows.net
 ```
 
-Browse to that URL to open your workspace.
+> **NOTE**: you will need the file system endpoint value when running the notebooks.
+
+Browse to the workspace URL.
 
 # Run the "Basic" Notebook
 

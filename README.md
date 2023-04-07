@@ -1,6 +1,6 @@
 # Azure Synapse Analytics Machine Learning Example
 
-For more context please view the [YouTube](http://www.youtube.com) video.
+For more context please view the [YouTube](https://youtu.be/gHgcR1QZ4PE) video.
 
 ## Create Azure Resources
 

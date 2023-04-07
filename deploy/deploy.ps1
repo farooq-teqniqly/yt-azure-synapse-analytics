@@ -126,15 +126,17 @@ az storage fs directory upload `
     --destination-path $dataLakeFolder `
     --recursive
 
-$notebookFolderPath = [IO.Path]::Combine($PSScriptRoot, "../", "notebooks")
-$notebookFiles = Get-ChildItem $notebookFolderPath -Filter "*.ipynb"
-
-foreach ($notebookFile in $notebookFiles) {
-    az synapse notebook import `
-        --workspace-name $synapseWorkspaceName  `
-        --name $notebookFile.Name.Replace($notebookFile.Extension, "") `
-        --file "`"@$notebookFolderPath/$notebookFile`""
-}
+    $notebookFolderPath = [IO.Path]::Combine($PSScriptRoot, "../", "notebooks")
+    $notebookFiles = Get-ChildItem $notebookFolderPath -Filter "*.ipynb"
+    
+    foreach ($notebookFile in $notebookFiles) {
+        $notebookPath = [IO.Path]::Combine($notebookFolderPath, $notebookFile)
+        
+        az synapse notebook import `
+            --workspace-name $synapseWorkspaceName `
+            --name $notebookFile.Name.Replace($notebookFile.Extension, "") `
+            --file "@$notebookPath"
+    }
 
 Write-Host "Upload complete" -ForegroundColor Cyan
 

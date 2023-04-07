@@ -175,3 +175,9 @@ $workspaceUrl = az synapse workspace show `
     --output tsv
 
 Write-Host $workspaceUrl -ForegroundColor Yellow
+
+Write-Host "Your file system endpoint:" -ForegroundColor Cyan
+
+$endpoint = "$fileSystemName@$dataLakeName.dfs.core.windows.net"
+
+Write-Host $endpoint -ForegroundColor Yellow

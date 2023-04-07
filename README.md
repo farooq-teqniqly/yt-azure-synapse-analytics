@@ -25,7 +25,7 @@ The script also uploads several CSV files to the Azure Data Lake.
 
 ## Open the Azure Synapse Workspace
 
-When the deployment script successfuly completes, your Azure Synapse Workspace URL is shown in the output:
+When the deployment script successfuly completes, your Azure Synapse Workspace URL and file system endpoint is shown in the output:
 
 ```bash
 Your Azure Synapse workspace url:
@@ -35,10 +35,26 @@ https://web.azuresynapse.net?workspace=%2fsubscriptions%2f1e32e17d-db2c-4254-ac0
 
 Browse to that URL to open your workspace.
 
-# View CSV Files
+# Run the "Basic" Notebook
 
-1. In the navigation menu on the left, click **Data**.
-2. Click the **Linked** tab.
-3. Expand the **Azure Data Lake Storage Gen2** node in the tree view.
-4. The first child node is the Azure Synapse Workspace name. Expand that node and the child node is the name of the Azure Data Lake Filesystem (the name ends in **fs**). Click the file system node.
-5. Drill down into the **data** folder until you see the 53 CSV files listed.
+Run a notebook that performs basic data exploration.
+
+1. In the navigation menu on the left, click **Develop**.
+2. Expand **Notebooks** and select **Basic**.
+3. On **line 2 of the first cell**, set the value of the `filesystem_endpoint` variable to the name of your file system endpoint. The file system endpoint can be found in the deployment script output.
+4. In the **Attach to** drop-down in the toolbar, select **sparkPool01**.
+5. Click **Run all**.
+6. The Spark cluster starts, and the code in the notebook is executed.
+
+> **NOTE**: It can take several minutes to start the Spark cluster. Subsequent runs of the notebook will be much faster. The cluster is configured to shut down after 30 minutes of inactivity.
+
+# Run the "K-means Clustering" Notebook
+
+Run a notebook that performs basic data exploration.
+
+1. In the navigation menu on the left, click **Develop**.
+2. Expand **Notebooks** and select **K-means Clustering**.
+3. On **line 2 of the second cell**, set the value of the `filesystem_endpoint` variable to the name of your file system endpoint. The file system endpoint can be found in the deployment script output.
+4. In the **Attach to** drop-down in the toolbar, select **sparkPool01**.
+5. Click **Run all**.
+6. The Spark cluster starts, and the code in the notebook is executed.
